@@ -1,14 +1,30 @@
 ---
-
+import editImage from "/public/assets/images/edit.webp";
 ---
 
-<section class="grid md:grid-cols-2">
+<section class="grid gap-6 lg:gap-20 lg:grid-cols-2 px-3 md:px-10">
 
-    <article>
+    <article class="flex flex-col gap-6 justify-between">
+    <h2 class="font-trend-sans neon-white text-4xl md:text-6xl 2xl:text-7xl fade-in">SERVICIOS</h2>
+    <div class="h-full">    
+        <img src={editImage.src} alt="Imagen de edición de video" class="rounded-[3rem] object-cover h-full w-full">
+    </div>    
+</article>
 
-    </article>
+    <article class="flex flex-col gap-6 justify-evenly px-2">
+        <div>
+            <h3 class="text-amber-500 uppercase text-xl lg:text-2xl 2xl:text-3xl font-black font-basic-sans">Edición de video vertical</h3>
+            <p class="font-sans font-normal lg:text-xl 2xl:text-2xl">Material dinámico y llamativo destinado a redes como reels, shots, tiktok, etc.  Con ajuste de proporciones, efectos visuales adaptados a formato vertical, transiciones,  integración de texto y gráficos animados</p>
+        </div>
 
-    <article>
-        
+        <div>
+            <h3 class="text-amber-500 uppercase text-xl lg:text-2xl 2xl:text-3xl font-bold font-basic-sans">Edición de Videos Musicales</h3>
+            <p class="font-sans font-normal lg:text-xl 2xl:text-2xl">Creación de videos musicales que capturan la esencia de la música y la visión artística del músico o banda. Sincronización de audio y video, edición rítmica, efectos especiales básicos, corrección de color y narrativa visual.</p>
+        </div>
+        <div>
+            <h3 class="text-amber-500 uppercase text-xl lg:text-2xl 2xl:text-3xl font-bold font-basic-sans">Edición para Televisión</h3>
+            <p class="font-sans font-normal lg:text-xl 2xl:text-2xl">Edición de contenido profesional para emisiones de televisión, incluyendo comerciales, entrevistas y documentales. Corrección de color, mezcla de audio, conformidad con estándares de emisión, integración de gráficos, inserts y subtítulos
+            </p>
+        </div>
     </article>
 </section>

@@ -10,14 +10,12 @@ import TvVideos from '../components/TvVideos.astro';
 import VerticalsVideos from '../components/VerticalsVideos.astro';
 import Layout from '../layouts/Layout.astro';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <Layout title="Agustin Altamirano" description="Portafolio de Agustin Altamirano">
 
 <div class="h-5 bg-gradient-to-r from-[#C6631C] to-[#F89E27]"></div>
-<main class="container mx-auto text-white overflow-x-hidden">
+<main class="container mx-auto text-white flex flex-col gap-10">
 	<div class="fixed inset-0 -z-10 h-full w-full items-center  [background:radial-gradient(125%_125%_at_80%_10%,#280F45_30%,#1A191B_100%)]"></div>
 	<Hero/>
 	<Services/>

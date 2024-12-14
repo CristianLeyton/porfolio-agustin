@@ -1,0 +1,48 @@
+---
+import LogoIcon from "./icons/LogoIcon.astro";
+
+
+---
+<section class="h-full px-3 md:px-10 overflow-hidden">
+
+    <div class="font-basic-sans pt-6 md:pt-10 flex flex-nowrap items-center gap-2 text-3xl">
+        <LogoIcon className="size-20"/> PORTFOLIO
+    </div>
+
+    <main class="grid md:grid-cols-3 grid-cols-2 items-center">
+
+    <div class="font-trend-sans col-span-2 mt-6">
+        <p class="neon-white text-5xl sm:text-7xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl tracking-tighter">AGUSTÍN</p>
+        <p class="neon-white text-5xl sm:text-7xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl tracking-tighter">ALTAMIRANO</p>
+        <h3 class="neon-orange font-basic-sans text-lg sm:text-2xl md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl text-amber-500 mt-2 tracking-widest">DISEÑO GRAFICO Y EDICIÓN DE VIDEO</h3>
+        <button class="rounded-full underline font-mono font-extrabold bg-gradient-to-r from-amber-600 to-amber-500 px-8 py-3 md:px-10 md:py-4 md:text-xl mt-6 hover:scale-105 transition-all">CONTACTO</button>
+    </div>
+    
+    <div class="col-span-2 md:col-span-1">
+
+        <div class="md:hidden flex justify-center items-center ">
+            <img src="/public/assets/images/pr.png" alt="Icono Adobe Premier Pro" class="w-[40%] transform rotate-12 -z-10 m-2">
+            <img src="/public/assets/images/ps.png" alt="Icono Adobe Photoshop" class="w-[40%] transform -rotate-12 -z-0 m-2 -ml-[15%]">
+            <img src="/public/assets/images/ai.png" alt="Icono Adobe Illustrator" class="w-[40%] transform rotate-12 z-10 m-2 -ml-[15%]">
+        </div>
+
+        <div class="hidden md:flex md:flex-col pr-2">
+            <img src="/public/assets/images/pr.png" alt="Icono Adobe Premier Pro" class="w-[75%] xl:w-[65%] 2xl:w-[75%] aspect-square -mt-[20%] -rotate-12 translate-x-20 z-0">
+            <img src="/public/assets/images/ps.png" alt="Icono Adobe Premier Pro" class="w-[75%] xl:w-[65%] 2xl:w-[75%] aspect-square -mt-[30%] rotate-12 -translate-x-7 z-10">
+            <img src="/public/assets/images/ai.png" alt="Icono Adobe Premier Pro" class="w-[75%] xl:w-[65%] 2xl:w-[75%] aspect-square -mt-[30%] -rotate-12 translate-x-20 z-20">
+        </div>
+    </div>
+
+</main>
+</section>
+
+
+<style>
+    .neon-white {
+       filter: drop-shadow(0em 0em 0.01257511em rgba(255, 242, 242, 0.950000)) drop-shadow(0em 0em 0.06287556em rgba(255, 255, 255, 0.750000)) drop-shadow(0em 0em 0.18862669em rgba(255, 255, 255, 0.440000))
+    }
+
+    .neon-orange {
+        filter: drop-shadow(0em 0em 0.01257511em rgba(238, 140, 0, 0.950000)) drop-shadow(0em 0em 0.06287556em rgba(238, 147, 15, 0.750000)) drop-shadow(0em 0em 0.18862669em rgba(238, 147, 15, 0.440000))
+    }
+</style>

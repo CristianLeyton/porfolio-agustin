@@ -7,7 +7,7 @@ const { title, description } = Astro.props;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="/public/assets/images/logo.webp" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <meta name="description" content={description} />
@@ -37,12 +37,25 @@ const { title, description } = Astro.props;
   }
 
   .fade-in {
-    opacity: 0; /* Comienza invisible */
-    transition: opacity 1.5s; /* Transición suave de opacidad */
+    opacity: 0; 
+    transition: opacity 1s ease-in-out; 
   }
 
   .fade-in.visible {
-    opacity: 1; /* Se vuelve visible */
+    opacity: 1; 
+  }
+
+  .animate-entry{
+	animation: entry 1s ease-in-out;
+  }
+
+  @keyframes entry {
+    from {
+      transform: translateY(5rem);
+    }
+    to {
+      transform: translateY(0);
+    }
   }
 </style>
 

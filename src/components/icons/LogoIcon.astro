@@ -1,8 +1,9 @@
 ---
 const { className } = Astro.props; //Recupero las clases
+import Logo from "/public/assets/images/logo.webp";
 ---
 
-<img class:list={['', className]} src="/public/assets/images/logo.webp">
+<img class:list={['', className]} src={Logo.src}>
 
 
 

@@ -1,6 +1,8 @@
 ---
 import LogoIcon from "./icons/LogoIcon.astro";
-
+import LogoPR from "/public/assets/images/pr.png";
+import LogoPS from "/public/assets/images/ps.png";
+import LogoAI from "/public/assets/images/ai.png";
 
 ---
 <section class="h-full px-3 md:px-10 overflow-hidden">
@@ -23,15 +25,15 @@ import LogoIcon from "./icons/LogoIcon.astro";
     <div class="col-span-2 md:col-span-1">
 
         <div class="md:hidden flex justify-center items-center">
-            <img src="/public/assets/images/pr.png" alt="Icono Adobe Premier Pro" class="w-[40%] transform rotate-12 -z-10 m-2">
-            <img src="/public/assets/images/ps.png" alt="Icono Adobe Photoshop" class="w-[40%] transform -rotate-12 -z-0 m-2 -ml-[15%]">
-            <img src="/public/assets/images/ai.png" alt="Icono Adobe Illustrator" class="w-[40%] transform rotate-12 z-10 m-2 -ml-[15%]">
+            <img src={LogoPR.src} alt="Icono Adobe Premier Pro" class="w-[40%] transform rotate-12 -z-10 m-2">
+            <img src={LogoPS.src} alt="Icono Adobe Photoshop" class="w-[40%] transform -rotate-12 -z-0 m-2 -ml-[15%]">
+            <img src={LogoAI.src} alt="Icono Adobe Illustrator" class="w-[40%] transform rotate-12 z-10 m-2 -ml-[15%]">
         </div>
 
         <div class="hidden md:flex md:flex-col pr-2">
-            <img src="/public/assets/images/pr.png" alt="Icono Adobe Premier Pro" class="w-[75%] xl:w-[65%] 2xl:w-[75%] aspect-square -mt-[20%] -rotate-12 translate-x-20 z-0">
-            <img src="/public/assets/images/ps.png" alt="Icono Adobe Premier Pro" class="w-[75%] xl:w-[65%] 2xl:w-[75%] aspect-square -mt-[30%] rotate-12 -translate-x-7 z-10">
-            <img src="/public/assets/images/ai.png" alt="Icono Adobe Premier Pro" class="w-[75%] xl:w-[65%] 2xl:w-[75%] aspect-square -mt-[30%] -rotate-12 translate-x-20 z-20">
+            <img src={LogoPR.src} alt="Icono Adobe Premier Pro" class="w-[75%] xl:w-[65%] 2xl:w-[75%] aspect-square -mt-[20%] -rotate-12 translate-x-20 z-0">
+            <img src={LogoPS.src} alt="Icono Adobe Premier Pro" class="w-[75%] xl:w-[65%] 2xl:w-[75%] aspect-square -mt-[30%] rotate-12 -translate-x-7 z-10">
+            <img src={LogoAI.src} alt="Icono Adobe Premier Pro" class="w-[75%] xl:w-[65%] 2xl:w-[75%] aspect-square -mt-[30%] -rotate-12 translate-x-20 z-20">
         </div>
     </div>
 

@@ -1,11 +1,12 @@
 ---
+import Title from "./utils/Title.astro";
 import editImage from "/public/assets/images/edit.webp";
 ---
 
 <section class="grid gap-6 lg:gap-20 lg:grid-cols-2 px-3 md:px-10">
 
     <article class="flex flex-col gap-6 justify-between">
-    <h2 class="font-trend-sans neon-white text-4xl md:text-6xl 2xl:text-7xl fade-in">SERVICIOS</h2>
+    <Title>SERVICIOS</Title>
     <div class="h-full">    
         <img src={editImage.src} alt="Imagen de edición de video" class="rounded-[3rem] object-cover h-full w-full">
     </div>    

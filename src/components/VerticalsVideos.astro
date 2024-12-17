@@ -1,0 +1,49 @@
+---
+import video1 from "./public/assets/videos/verticals-video-1.mp4";
+import video2 from "./public/assets/videos/verticals-video-2.mp4";
+import video3 from "./public/assets/videos/verticals-video-3.mp4";
+import Title from "./utils/Title.astro";
+
+const videos = [video1, video2, video3];
+---
+
+<section >
+    <Title>
+        EDICIÓN VIDEO VERTICAL
+    </Title>
+
+    <div class="slider flex justify-evenly gap-5 p-10">
+        {videos.map((video) => (
+            <video 
+                class="slide border-4 border-amber-300/80 neon-orange-big w-full lg:w-1/4 aspect-[9/16] object-cover" 
+                controls 
+                autoplay 
+                loop 
+                muted 
+                playsinline
+            >
+                <source src={video} type="video/mp4">
+            </video>
+        ))}
+    </div>
+</section>
+
+<style>
+
+  @media (max-width: 640px) {
+    .slider {
+      display: flex;
+      scroll-snap-type: x mandatory;
+      gap: 40px;
+      overflow-x: scroll;
+      overflow-y: hidden;
+    }
+
+    .slide {
+      flex: 0 0 100% !important; /* Sobrescribe clases de Tailwind */
+      scroll-snap-align: center;
+      width: 100% !important; /* Asegura el tamaño completo */
+      object-fit: cover;
+    }
+  }
+</style>

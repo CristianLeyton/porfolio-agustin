@@ -1,0 +1,34 @@
+---
+import Title from "./utils/Title.astro";
+
+import video1 from "./public/assets/videos/video1.mp4";
+import video2 from "./public/assets/videos/video2.mp4";
+
+import logoCanal10 from "./public/assets/images/canal-10.png";
+
+const videos = [video1, video2];
+---
+
+<section class="px-3 md:px-10">
+    <Title>
+        EDICIÓN PARA TV
+    </Title>
+
+    <div class="flex flex-wrap">
+        {videos.map((video) => (
+            <video src={video} class="w-full md:w-1/2 p-5 md:p-10" autoplay loop muted playsinline>
+                <source src={video} type="video/mp4">
+            </video>
+        ))}
+    </div>
+
+    <div class="flex items-center gap-4 justify-center flex-nowrap">
+        <img src={logoCanal10.src} alt="Logo de Canal 10" class="aspect-square object-contain w-28 lg:w-40">
+
+        <div class="flex flex-col">
+            <p class="text-xl md:text-3xl font-bold">SER UNIVERSITARIO SALTA</p>
+            <p class="text-base md:text-xl font-semibold">Conducción: Jorge Altamirano</p>
+            <p class="text-base md:text-xl font-semibold">Canal 10 tv, Domingos 17:00 hs</p>
+        </div>
+    </div>
+</section>

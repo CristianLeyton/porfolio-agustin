@@ -1,0 +1,79 @@
+---
+import Title from "./utils/Title.astro";
+
+
+const musicals = [
+     {
+        title: "La barca - Juan moreno",
+        description: "producción 2023",
+        programa: "Premier Pro",
+        camara: "Dji Osmo Pocket 4k",
+        image: "./public/assets/images/la-barca.jpg",
+        video: "Ylfsuwq3cdU"
+    }, 
+    {
+        title: "Palabras de Vida - Juan moreno",
+        description: "producción 2022",
+        programa: "Premier Pro",
+        camara: "Canon Rebel T7i",
+        image: "./public/assets/images/palabras-de-vida.jpg",
+        video: "Ert0fM8RDT4"
+    },
+    {
+        title: "La luna - Juan moreno y Nahuel diaz",
+        description: "producción 2021",
+        programa: "Premier Pro",
+        camara: "Canon EOS 70D",
+        image: "./public/assets/images/la-luna.jpg",
+        video: "KEnC7-9tqzA"
+    }
+];
+
+
+---
+
+<section class="px-3 md:px-10">
+    <Title>
+        EDICIÓN VIDEOS MUSICALES
+    </Title>
+
+    <article class="flex flex-wrap w-full justify-center gap-10 mt-10" >
+        {musicals.map((musical) => (
+            <div class="flex flex-col gap-5 w-full lg:w-[30%]" >
+
+                <lite-youtube  videoid={musical.video} class="aspect-video video border-8 rounded-2xl border-neutral-200 bg-black" params="showinfo=0&rel=0">
+                  <img slot="image" src={musical.image} alt="Imagen de la canción" class="image-video"> 
+                </lite-youtube>
+
+                <span class="flex flex-col gap-2">
+                <h3 class="text-lg font-bold uppercase">{musical.title}</h3>
+                <p class="italic text-lg">{musical.description}</p>
+                <p class="italic text-lg">
+                    <strong>Programa:</strong> {musical.programa} <br />
+                    <strong>Cámara:</strong> {musical.camara}
+                </p>
+                </span>
+            </div>
+        ))}
+    </article>
+</section>
+
+
+
+<script type="module" src="https://cdn.jsdelivr.net/npm/@justinribeiro/lite-youtube@1/lite-youtube.min.js"></script>
+
+<script >
+
+    const videos = document.querySelectorAll("lite-youtube");
+
+    videos.forEach((video) => {
+        video.addEventListener("click", () => {
+            const image = video.querySelector(".image-video");
+            console.log("click");
+            image?.classList.toggle("hidden");
+        });
+    });
+
+
+</script>
+

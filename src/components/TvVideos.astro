@@ -16,7 +16,7 @@ const videos = [video1, video2];
 
     <div class="flex flex-wrap">
         {videos.map((video) => (
-            <video src={video} class="w-full md:w-1/2 p-5 md:p-10" autoplay loop muted playsinline>
+            <video src={video} class="w-full md:w-1/2 p-5 md:p-10" loop muted playsinline>
                 <source src={video} type="video/mp4">
             </video>
         ))}
@@ -32,3 +32,32 @@ const videos = [video1, video2];
         </div>
     </div>
 </section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const videos = document.querySelectorAll("video");
+
+    const observerOptions = {
+      root: null, // Observa en el contexto del viewport
+      rootMargin: "0px",
+      threshold: 0.5 // El video debe estar al menos 50% visible
+    };
+
+    const videoObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        const video = entry.target;
+        if (entry.isIntersecting) {
+          //@ts-ignore
+          video.play();
+        } else {
+          //@ts-ignore
+          video.pause();
+        }
+      });
+    }, observerOptions);
+
+    videos.forEach(video => {
+      videoObserver.observe(video);
+    });
+  });
+</script>

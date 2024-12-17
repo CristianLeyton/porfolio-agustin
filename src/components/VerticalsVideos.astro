@@ -5,43 +5,26 @@ import video3 from "/public/assets/videos/verticals-video-3.mp4";
 import Title from "./utils/Title.astro";
 
 const videos = [video1, video2, video3];
-
 ---
+
 <section>
     <Title className="px-3 md:px-10">
         EDICIÓN VIDEO VERTICAL
     </Title>
     <div class="slider flex justify-evenly gap-5 p-10">
-
-
         {videos.map((video, index) => (
-          <video
-              class={`slide border-4 border-amber-300/80 neon-orange-big w-full lg:w-1/4 aspect-[9/16] object-cover md:hidden`}
-              controls
-              autoplay={index === 0} 
-              loop
-              muted={index === 0} 
-              playsinline
-          >
-              <source src={video} type="video/mp4" />
-          </video>
-      ))}
-
-        
-          {videos.map((video, index) => (
             <video
-                class={`slide border-4 border-amber-300/80 neon-orange-big w-full lg:w-1/4 aspect-[9/16] object-cover hidden md:block`}
+                class={`slide border-4 border-amber-300/80 neon-orange-big w-full lg:w-1/4 aspect-[9/16] object-cover `}
                 controls
-                autoplay 
                 loop
                 muted
                 playsinline
+                id={`video-${index}`}
             >
                 <source src={video} type="video/mp4" />
             </video>
         ))}
-
-</div>
+    </div>
 </section>
 
 <style>
@@ -62,3 +45,32 @@ const videos = [video1, video2, video3];
     }
   }
 </style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const videos = document.querySelectorAll("video");
+
+    const observerOptions = {
+      root: null, // Observa en el contexto del viewport
+      rootMargin: "0px",
+      threshold: 0.5 // El video debe estar al menos 50% visible
+    };
+
+    const videoObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        const video = entry.target;
+        if (entry.isIntersecting) {
+          //@ts-ignore
+          video.play();
+        } else {
+          //@ts-ignore
+          video.pause();
+        }
+      });
+    }, observerOptions);
+
+    videos.forEach(video => {
+      videoObserver.observe(video);
+    });
+  });
+</script>

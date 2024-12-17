@@ -5,31 +5,46 @@ import video3 from "/public/assets/videos/verticals-video-3.mp4";
 import Title from "./utils/Title.astro";
 
 const videos = [video1, video2, video3];
----
 
-<section >
+---
+<section>
     <Title className="px-3 md:px-10">
         EDICIÓN VIDEO VERTICAL
     </Title>
-
     <div class="slider flex justify-evenly gap-5 p-10">
-        {videos.map((video) => (
-            <video 
-                class="slide border-4 border-amber-300/80 neon-orange-big w-full lg:w-1/4 aspect-[9/16] object-cover" 
-                controls 
+
+
+        {videos.map((video, index) => (
+          <video
+              class={`slide border-4 border-amber-300/80 neon-orange-big w-full lg:w-1/4 aspect-[9/16] object-cover md:hidden`}
+              controls
+              autoplay={index === 0} 
+              loop
+              muted={index === 0} 
+              playsinline
+          >
+              <source src={video} type="video/mp4" />
+          </video>
+      ))}
+
+        
+          {videos.map((video, index) => (
+            <video
+                class={`slide border-4 border-amber-300/80 neon-orange-big w-full lg:w-1/4 aspect-[9/16] object-cover hidden md:block`}
+                controls
                 autoplay 
-                loop 
-                muted 
+                loop
+                muted
                 playsinline
             >
-                <source src={video} type="video/mp4">
+                <source src={video} type="video/mp4" />
             </video>
         ))}
-    </div>
+
+</div>
 </section>
 
 <style>
-
   @media (max-width: 640px) {
     .slider {
       display: flex;
@@ -40,9 +55,9 @@ const videos = [video1, video2, video3];
     }
 
     .slide {
-      flex: 0 0 100% !important; /* Sobrescribe clases de Tailwind */
+      flex: 0 0 100%;
       scroll-snap-align: center;
-      width: 100% !important; /* Asegura el tamaño completo */
+      width: 100% !important;
       object-fit: cover;
     }
   }

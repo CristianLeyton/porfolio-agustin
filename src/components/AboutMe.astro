@@ -1,0 +1,26 @@
+---
+import Title from "./utils/Title.astro";
+import avatar from "/public/assets/images/avatar.webp";
+import CV from "/public/assets/CV-AltamiranoAgustin.pdf"
+---
+
+<section class="px-3 md:px-10 mt-10">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-10 gap-y-6">
+        <article class="flex flex-col justify-evenly gap-5 text-xl">
+            <Title>ACERCA DE MI</Title>
+            <p>Soy un apasionado editor de video y diseñador gráfico con años de experiencia en el campo. Mi creatividad y atención al detalle me permiten transformar ideas en historias visuales impactantes.</p>     
+            <p>Me encanta explorar nuevas técnicas y tendencias, siempre buscando innovar y mejorar mis habilidades. He tenido la oportunidad de trabajar en una variedad de proyectos. Cada proyecto es una nueva aventura, y disfruto cada paso del proceso creativo, desde la conceptualización hasta la postproducción.</p>
+            <p>Mi objetivo es siempre superar las expectativas del cliente, entregando productos visuales que no solo cumplan con sus necesidades, sino que también sorprendan y deleiten a su audiencia.</p>
+        
+            <div class="flex gap-x-4">
+                <a href="https://api.whatsapp.com/send/?phone=543875715747&type=phone_number&app_absent=0" target="_blank" class="inline-block rounded-full underline font-mono font-extrabold bg-gradient-to-r from-amber-600 to-amber-500 px-8 py-3 md:px-10 md:py-4 text-base md:text-xl hover:scale-105 transition-all">CONTACTO</a>
+                <a href={CV} target="_blank" class="inline-block rounded-full underline font-mono font-extrabold border-2 border-amber-600 px-8 py-3 md:px-10 md:py-4 text-base md:text-xl hover:scale-105 transition-all">CURRICULUM</a>
+                <!-- download="Agustin-Altamirano-CV.pdf" -->
+            </div>
+        </article>
+
+        <article class="w-full animate-entry fade-in">
+            <img src={avatar.src} alt="Agustin Altamirano" class=" w-full h-full object-cover rounded-3xl aspect-auto">
+        </article>
+    </div>
+</section>

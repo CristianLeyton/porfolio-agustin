@@ -7,14 +7,14 @@ import Title from "./utils/Title.astro";
 const videos = [video1, video2, video3];
 ---
 
-<section>
+<section class="">
     <Title className="px-3 md:px-10">
         EDICIÓN VIDEO VERTICAL
     </Title>
     <div class="slider flex justify-evenly gap-5 p-10">
         {videos.map((video, index) => (
             <video
-                class={`slide border-4 border-amber-300/80 neon-orange-big w-full lg:w-1/4 aspect-[9/16] object-cover `}
+                class={`video slide border-4 border-amber-300/80 neon-orange-big w-full lg:w-1/4 aspect-[9/16] object-cover bg-black`}
                 controls
                 loop
                 muted
@@ -48,7 +48,7 @@ const videos = [video1, video2, video3];
 
 <script>
   document.addEventListener("DOMContentLoaded", function() {
-    const videos = document.querySelectorAll("video");
+    const videos = document.querySelectorAll(".video");
 
     const observerOptions = {
       root: null, // Observa en el contexto del viewport
@@ -70,6 +70,15 @@ const videos = [video1, video2, video3];
     }, observerOptions);
 
     videos.forEach(video => {
+      video.addEventListener("click", (e) => {
+        //@ts-ignore
+      if (video.muted) {
+        e.preventDefault();
+        //@ts-ignore
+        video.muted = false; // Desmutea el video
+      } 
+    });
+
       videoObserver.observe(video);
     });
   });

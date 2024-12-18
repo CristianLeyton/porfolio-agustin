@@ -49,26 +49,23 @@ import Logo from "/public/assets/images/logo.webp";
         box-shadow: 0px 0px 25px rgba(238, 140, 0, 0.50);
     }
 
+
   .fade-in {
-    opacity: 0; 
-    transition: opacity 1s ease-in-out; 
+    opacity: 0;
+    transition: opacity 1s ease-in-out, 
   }
 
-  .fade-in.visible {
-    opacity: 1; 
+  .animate-entry {
+    transform: translateY(5rem);
+    transition: all 1s ease-in-out;
   }
 
-  .animate-entry{
-	animation: entry 1s ease-in-out;
+  .fade-in.visible-fade {
+    opacity: 1;
   }
 
-  @keyframes entry {
-    from {
-      transform: translateY(5rem);
-    }
-    to {
-      transform: translateY(0);
-    }
+  .animate-entry.visible-animate {
+    transform: translateY(0);
   }
 </style>
 
@@ -77,13 +74,19 @@ import Logo from "/public/assets/images/logo.webp";
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-          observer.unobserve(entry.target); // Deja de observar una vez que es visible
+          if (entry.target.classList.contains("fade-in")) {
+            entry.target.classList.add("visible-fade");
+          }
+          if (entry.target.classList.contains("animate-entry")) {
+            entry.target.classList.add("visible-animate");
+          }
+          observer.unobserve(entry.target); // Deja de observar después de aplicar clases
         }
       });
     });
 
-    const elements = document.querySelectorAll(".fade-in");
+    // Seleccionar ambos tipos de elementos
+    const elements = document.querySelectorAll(".fade-in, .animate-entry");
     elements.forEach((element) => {
       observer.observe(element);
     });

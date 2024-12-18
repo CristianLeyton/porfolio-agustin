@@ -1,29 +1,34 @@
 ---
-
-import AboutMe from '../components/AboutMe.astro';
-import Contact from '../components/Contact.astro';
-import Hero from '../components/Hero.astro';
-import MusicalsVideos from '../components/MusicalsVideos.astro';
-import Services from '../components/Services.astro';
-import Skills from '../components/Skills.astro';
-import TvVideos from '../components/TvVideos.astro';
-import VerticalsVideos from '../components/VerticalsVideos.astro';
-import Layout from '../layouts/Layout.astro';
-
+import AboutMe from "../components/AboutMe.astro";
+import Contact from "../components/Contact.astro";
+import Hero from "../components/Hero.astro";
+import MusicalsVideos from "../components/MusicalsVideos.astro";
+import Services from "../components/Services.astro";
+import Skills from "../components/Skills.astro";
+import TvVideos from "../components/TvVideos.astro";
+import VerticalsVideos from "../components/VerticalsVideos.astro";
+import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title="Agustin Altamirano" description="Portafolio de Agustin Altamirano">
-
-<div class="h-5 bg-gradient-to-r from-[#C6631C] to-[#F89E27]"></div>
-<main class="container mx-auto text-white flex flex-col gap-10">
-	<div class="fixed inset-0 -z-10 h-full w-full items-center  [background:radial-gradient(125%_125%_at_80%_10%,#280F45_30%,#1A191B_100%)]"></div>
-	<Hero/>
-	<Services/>
-	<VerticalsVideos/>
-	<MusicalsVideos />
-	<TvVideos/>
-	<Skills/>
-	<AboutMe/>
-	<Contact/>
-</main>
+<Layout
+  title="Agustin Altamirano"
+  description="Portafolio de Agustin Altamirano"
+>
+  <div class="h-5 bg-gradient-to-r from-[#C6631C] to-[#F89E27]"></div>
+  <main class="container mx-auto text-white flex flex-col gap-10">
+    <div
+      class="fixed inset-0 -z-10 h-full w-full items-center [background:radial-gradient(125%_125%_at_80%_10%,#280F45_30%,#1A191B_100%)]"
+    >
+    </div>
+    <Hero />
+    <Services />
+    <VerticalsVideos />
+    <MusicalsVideos />
+    <TvVideos />
+  </main>
+  <Skills />
+  <section class="container mx-auto text-white flex flex-col gap-10">
+    <AboutMe />
+  </section>
+  <Contact />
 </Layout>

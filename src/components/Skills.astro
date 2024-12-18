@@ -1,0 +1,137 @@
+---
+import Title from "./utils/Title.astro";
+import video from "/public/assets/videos/waves.mp4";
+
+import PhotoshopIcon from "./icons/PhotoshopIcon.astro";
+import LightroomIcon from "./icons/LightroomIcon.astro";
+import IllustratorIcon from "./icons/IllustratorIcon.astro";
+import BlenderIcon from "./icons/BlenderIcon.astro";
+import PremierProIcon from "./icons/PremierProIcon.astro";
+import SonyVegasIcon from "./icons/SonyVegasIcon.astro";
+import AfterEffectsIcon from "./icons/AfterEffectsIcon.astro";
+import KritaIcon from "./icons/KritaIcon.astro";
+
+const {className} = Astro.props;
+
+const skills = [
+  {
+    name: "Adobe Photoshop",
+    description:
+      "Herramienta líder en edición de imágenes y gráficos rasterizados. Ideal para retoque fotográfico, creación de gráficos, diseño web, y edición de imágenes complejas.",
+    icon: PhotoshopIcon,
+    exp: "95",
+  },
+  {
+    name: "Adobe Lightroom",
+    description:
+      "Herramienta de edición y gestión de fotografías. Permite ajustes de iluminación, color, así como la organización eficiente de grandes colecciones de fotos.",
+    icon: LightroomIcon,
+    exp: "50",
+  },
+  {
+    name: "Adobe Illustrator",
+    description:
+      "Software de diseño vectorial utilizado para crear logotipos, ilustraciones y gráficos escalables sin pérdida de calidad. Ideal para trabajos de diseño gráfico.",
+    icon: IllustratorIcon,
+    exp: "55",
+  },
+  {
+    name: "Blender",
+    description:
+      "Software de código abierto para modelado 3D, animación, renderizado y postproducción. Ideal para la creación de gráficos 3D, animaciones y efectos visuales.",
+    icon: BlenderIcon,
+    exp: "40",
+  },
+  {
+    name: "Adobe Premiere Pro",
+    description:
+      "Programa de edición de video profesional utilizado para la creación y edición de contenido. Ofrece herramientas avanzadas para edición, corrección de color, y efectos.",
+    icon: PremierProIcon,
+    exp: "80",
+  },
+  {
+    name: "Sony Vegas",
+    description:
+      "Software de edición de video que ofrece herramientas profesionales para la edición de video y audio. Ideal para proyectos que requieren edición precisa y efectos.",
+    icon: SonyVegasIcon,
+    exp: "80",
+  },
+  {
+    name: "Adobe After Effects",
+    description:
+      "Software de composición y animación para crear gráficos en movimiento y efectos visuales. Es ideal para la postproducción de video, animaciones y efectos esp.",
+    icon: AfterEffectsIcon,
+    exp: "45",
+  },
+  {
+    name: "Krita",
+    description:
+      "Programa de dibujo y pintura digital, orientado a la creación de ilustraciones, concept art, y cómics. Ofrece una amplia variedad de pinceles y herramientas digitales.",
+    icon: KritaIcon,
+    exp: "45",
+  },
+];
+---
+
+<section class:list={['relative mt-10', className]} >
+    <div class="absolute inset-0 z-0">
+      <video
+        class="w-full h-full object-cover waves"
+        autoplay
+        loop
+        muted
+        playsinline
+      >
+        <source src={video} type="video/mp4" />
+      </video>
+    </div>
+  
+    <article class="relative z-10 p-6 bg-black bg-opacity-50 text-white flex flex-col items-center justify-center">
+      <Title className="text-center pb-10 pt-6">HABILIDADES</Title>
+  
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-6 w-full max-w-7xl">
+        {skills.map((skill) => (
+          <div class="flex gap-6 items-center px-0 lg:px-6 py-3">
+            <skill.icon className="aspect-square w-40 shrink-[0.5]" />
+            <div class="flex flex-col">
+              <p class="text-xl font-bold">{skill.name}</p>
+              <p class="text-sm">{skill.description}</p>
+              <p class="flex flex-nowrap items-center gap-2">Exp <span class="relative w-full block bg-slate-100/40 h-3"><span class="absolute inset-0 bg-white" style={`width: ${skill.exp}%`}></span></span></p>
+            </div>
+
+          </div>
+        ))}
+      </div>
+    </article>
+  </section>
+
+
+  
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const videos = document.querySelectorAll(".waves");
+  
+      const observerOptions = {
+        root: null, // Observa en el contexto del viewport
+        rootMargin: "0px",
+        threshold: 0.025 
+      };
+  
+      const videoObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          const video = entry.target;
+          if (entry.isIntersecting) {
+            //@ts-ignore
+            video.play();
+          } else {
+            //@ts-ignore
+            video.pause();
+          }
+        });
+      }, observerOptions);
+  
+      videos.forEach(video => {
+        videoObserver.observe(video);
+      });
+    });
+  </script>

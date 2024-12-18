@@ -1,0 +1,72 @@
+---
+import redWaves from "/public/assets/videos/waves-red.mp4";
+import WhatsappIcon from "/public/assets/images/whatsapp.png";
+import MailIcon from "./icons/MailIcon.astro";
+import InstagramIcon from "./icons/InstagramIcon.astro";
+import BehanceIcon from "/public/assets/images/behance.png"
+
+const contact = {
+    
+        name: "Agustín Altamirano",
+        email: "agustinaltamirano14@gmail.com",
+        phone: "543875715747",
+        whatsapp: "https://api.whatsapp.com/send/?phone=543875715747&type=phone_number&app_absent=0",
+        behance: "https://www.behance.net/AgustinAltamirano",
+        instagram: "https://www.instagram.com/agustinaltamirano_g/",
+    
+}
+---
+
+<section class="mt-10 mb-10 lg:mb-0 text-white">
+    <div class="inset-0 z-0 grid grid-cols-1 lg:grid-cols-3 gap-x-10 gap-y-6 relative">
+        <div class="lg:col-span-2 relative">
+            <video class="w-full h-fit object-cover waves" loop muted playsinline>
+                <source src={redWaves} type="video/mp4">
+                Tu navegador no soporta el elemento de video.
+            </video>
+            <div class="absolute inset-0 z-10 flex flex-col justify-center px-6 lg:px-20 h-full fade-in transform font-trend-sans">
+                <p class="neon-white text-5xl sm:text-7xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl tracking-tighter">AGUSTÍN</p>
+                <p class="neon-white text-5xl sm:text-7xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl tracking-tighter">ALTAMIRANO</p>
+                <p class="font-sans text-2xl lg:text-3xl 2xl:text-5xl font-bold pt-6">MEDIOS DE CONTACTO</p>
+            </div>
+        </div>
+
+        <div class="flex flex-col justify-center gap-y-8 col-span-1 px-6 lg:px-0">
+            <a href={contact.whatsapp} target="_blank" class="flex gap-4 items-center">
+                <img src={WhatsappIcon.src} alt="Icono WhatsApp" class="size-12 lg:size-16">
+
+                <div class="flex flex-col">
+                    <h3 class="text-amber-500 font-bold text-xl lg:text-2xl uppercase">CELULAR</h3>
+                    <p class="font-bold text-lg md:text-xl">(+54) 387 571-5747</p>
+                </div>
+            </a>
+
+            <a href=`mailto:${contact.email}` target="_blank" class="flex gap-4 items-center">
+                <MailIcon className="size-12 lg:size-14"/>
+
+                <div class="flex flex-col">
+                    <h3 class="text-amber-500 font-bold text-xl lg:text-2xl uppercase ">Email</h3>
+                    <p class="font-bold text-lg md:text-xl ">{contact.email}</p>
+                </div>
+            </a>
+
+            <a href={contact.behance} target="_blank" class="flex gap-4 items-center">
+                <img src={BehanceIcon.src} alt="Icono Behance" class="size-12 lg:size-14">
+
+                <div class="flex flex-col">
+                    <h3 class="text-amber-500 font-bold text-xl lg:text-2xl uppercase">Perfil Behance</h3>
+                    <p class="font-bold text-lg md:text-xl">Portfolio de Diseñador</p>
+                </div>
+            </a>
+
+            <a href={contact.instagram} target="_blank" class="flex gap-4 items-center">
+                <InstagramIcon className="size-12 lg:size-14"/>
+
+                <div class="flex flex-col">
+                    <h3 class="text-amber-500 font-bold text-xl lg:text-2xl uppercase">INSTAGRAM</h3>
+                    <p class="font-bold text-lg md:text-xl">agustinaltamirano_g</p>
+                </div>
+            </a>
+        </div>
+    </div>
+</section>

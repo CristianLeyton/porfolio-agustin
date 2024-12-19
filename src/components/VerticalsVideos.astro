@@ -69,13 +69,6 @@ const videos = [video1, video2, video3];
 
     videos.forEach(video => {
       const videoElement = video as HTMLVideoElement; // Asegúrate de que TypeScript sepa que es un video
-      videoElement.addEventListener("click", (e) => {
-        if (videoElement.muted) {
-          e.preventDefault();
-          videoElement.muted = false; // Desmutea el video
-        }
-      });
-
       videoObserver.observe(videoElement);
     });
   });

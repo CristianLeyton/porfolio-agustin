@@ -4,16 +4,15 @@ import WhatsappIcon from "/public/assets/images/whatsapp.webp";
 import MailIcon from "./icons/MailIcon.astro";
 import InstagramIcon from "./icons/InstagramIcon.astro";
 import BehanceIcon from "/public/assets/images/behance.webp"
+import ContactCard from "./utils/ContactCard.astro";
 
 export const contact = {
-    
         name: "Agustín Altamirano",
         email: "agustinaltamirano14@gmail.com",
         phone: "543875715747",
         whatsapp: "https://api.whatsapp.com/send/?phone=543875715747&type=phone_number&app_absent=0",
         behance: "https://www.behance.net/AgustinAltamirano",
         instagram: "https://www.instagram.com/agustinaltamirano_g/",
-    
 }
 ---
 
@@ -32,41 +31,22 @@ export const contact = {
         </div>
 
         <div class="flex flex-col justify-center gap-y-8 col-span-1 px-6 lg:px-0">
-            <a href={contact.whatsapp} target="_blank" class="flex gap-4 items-center">
-                <img src={WhatsappIcon.src} alt="Icono WhatsApp" class="size-12 lg:size-16">
 
-                <div class="flex flex-col">
-                    <h3 class="text-amber-500 font-bold text-xl lg:text-2xl uppercase">CELULAR</h3>
-                    <p class="font-bold text-lg md:text-xl">(+54) 387 571-5747</p>
-                </div>
-            </a>
+            <ContactCard link={contact.whatsapp} title="CELULAR" info="(+54) 387 571-5747">
+                <img loading="lazy" src={WhatsappIcon.src} slot="icon" alt="Icono WhatsApp" class="size-12 lg:size-16">
+            </ContactCard>
 
-            <a href=`mailto:${contact.email}` target="_blank" class="flex gap-4 items-center">
-                <MailIcon className="size-12 lg:size-14"/>
+            <ContactCard link={`mailto:${contact.email}`} title="Email" info={contact.email}>
+                <MailIcon slot="icon" className="size-12 lg:size-14"/>
+            </ContactCard>
 
-                <div class="flex flex-col">
-                    <h3 class="text-amber-500 font-bold text-xl lg:text-2xl uppercase ">Email</h3>
-                    <p class="font-bold text-lg md:text-xl ">{contact.email}</p>
-                </div>
-            </a>
+            <ContactCard link={contact.behance} title="Perfil Behance" info="Portfolio de Diseñador">                
+                <img loading="lazy" src={BehanceIcon.src} slot="icon" alt="Icono Behance" class="size-12 lg:size-14">
+            </ContactCard>
 
-            <a href={contact.behance} target="_blank" class="flex gap-4 items-center">
-                <img src={BehanceIcon.src} alt="Icono Behance" class="size-12 lg:size-14">
-
-                <div class="flex flex-col">
-                    <h3 class="text-amber-500 font-bold text-xl lg:text-2xl uppercase">Perfil Behance</h3>
-                    <p class="font-bold text-lg md:text-xl">Portfolio de Diseñador</p>
-                </div>
-            </a>
-
-            <a href={contact.instagram} target="_blank" class="flex gap-4 items-center">
-                <InstagramIcon className="size-12 lg:size-14"/>
-
-                <div class="flex flex-col">
-                    <h3 class="text-amber-500 font-bold text-xl lg:text-2xl uppercase">INSTAGRAM</h3>
-                    <p class="font-bold text-lg md:text-xl">agustinaltamirano_g</p>
-                </div>
-            </a>
+            <ContactCard link={contact.instagram} title="INSTAGRAM" info="agustinaltamirano_g">
+                <InstagramIcon slot="icon" className="size-12 lg:size-14"/>                
+            </ContactCard>
         </div>
     </div>
 </section>

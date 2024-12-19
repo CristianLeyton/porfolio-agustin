@@ -44,7 +44,7 @@ const musicals = [
         {musicals.map((musical) => (
             <div class="flex flex-col gap-5 w-full lg:w-[30%]" >
 
-                <lite-youtube  videoid={musical.video} class="aspect-video video border-8 rounded-2xl border-neutral-200 bg-black" params="showinfo=0&rel=0">
+                <lite-youtube  videoid={musical.video} class="aspect-video border-8 rounded-2xl border-neutral-200 bg-black" >
                   <img slot="image" src={musical.image} alt="Imagen de la canción" class="image-video"> 
                 </lite-youtube>
 
@@ -66,7 +66,6 @@ const musicals = [
 <script type="module" src="https://cdn.jsdelivr.net/npm/@justinribeiro/lite-youtube@1/lite-youtube.min.js"></script>
 
 <script >
-
     const videos = document.querySelectorAll("lite-youtube");
 
     videos.forEach((video) => {
@@ -76,7 +75,5 @@ const musicals = [
             image?.classList.toggle("hidden");
         });
     });
-
-
 </script>
 

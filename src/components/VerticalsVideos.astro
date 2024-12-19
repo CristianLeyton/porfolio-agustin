@@ -14,7 +14,7 @@ const videos = [video1, video2, video3];
     <div class="slider flex justify-evenly gap-5 p-10">
         {videos.map((video, index) => (
             <video
-                class={`video slide border-4 border-amber-300/80 neon-orange-big w-full lg:w-1/4 aspect-[9/16] object-cover bg-black`}
+                class={`video slide border-4 border-amber-300/80 neon-orange-big w-full md:w-1/4 aspect-[9/16] object-cover bg-black`}
                 controls
                 loop
                 muted
@@ -28,7 +28,7 @@ const videos = [video1, video2, video3];
 </section>
 
 <style>
-  @media (max-width: 640px) {
+  @media (max-width: 768px) {
     .slider {
       display: flex;
       scroll-snap-type: x mandatory;
@@ -58,28 +58,25 @@ const videos = [video1, video2, video3];
 
     const videoObserver = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
-        const video = entry.target;
+        const video = entry.target as HTMLVideoElement; // Asegúrate de que TypeScript sepa que es un video
         if (entry.isIntersecting) {
-          //@ts-ignore
           video.play();
         } else {
-          //@ts-ignore
           video.pause();
         }
       });
     }, observerOptions);
 
     videos.forEach(video => {
-      video.addEventListener("click", (e) => {
-        //@ts-ignore
-      if (video.muted) {
-        e.preventDefault();
-        //@ts-ignore
-        video.muted = false; // Desmutea el video
-      } 
-    });
+      const videoElement = video as HTMLVideoElement; // Asegúrate de que TypeScript sepa que es un video
+      videoElement.addEventListener("click", (e) => {
+        if (videoElement.muted) {
+          e.preventDefault();
+          videoElement.muted = false; // Desmutea el video
+        }
+      });
 
-      videoObserver.observe(video);
+      videoObserver.observe(videoElement);
     });
   });
 </script>

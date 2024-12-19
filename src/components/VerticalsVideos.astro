@@ -63,6 +63,7 @@ const videos = [video1, video2, video3];
           video.play();
         } else {
           video.pause();
+          video.muted = true;
         }
       });
     }, observerOptions);
